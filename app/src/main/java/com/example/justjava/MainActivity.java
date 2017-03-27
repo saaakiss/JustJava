@@ -38,21 +38,21 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        CheckBox checkBoxCream = (CheckBox) findViewById(R.id.Whipped_cream);
-        CheckBox checkBoxChoco = (CheckBox) findViewById(R.id.Chocolate);
-        boolean hasWhippedCream = checkBoxCream.isChecked();
-        boolean hasChocolate = checkBoxChoco.isChecked();
+        CheckBox checkBox = (CheckBox) findViewById(R.id.Whipped_cream);
+        boolean hasWhippedCream = checkBox.isChecked();
+        CheckBox checkBox1 = (CheckBox) findViewById(R.id.Chocolate);
+        boolean hasChocolate = checkBox1.isChecked();
         int price = this.quantity*5;
         String priceMessage = createOrderSummary(price,hasWhippedCream,hasChocolate);
         displayMessage(priceMessage);
     }
 
-    private String createOrderSummary(int price, boolean hasWhippedCream,boolean hasChocolate){
-        String priceMessage = "Name: Lyla the Labyrith";
+    private String createOrderSummary(int price, boolean hasWhippedCream, boolean hasChocolate){
+        String priceMessage = "Name: Lyla the Labyrinth";
         priceMessage += "\nAdd whipped cream? " + hasWhippedCream;
         priceMessage += "\nAdd chocolate? " + hasChocolate;
         priceMessage += "\nQuantity: " + quantity;
-        priceMessage += "\nTotal: $: " + price;
+        priceMessage += "\nTotal: $" + price;
         priceMessage += "\nThank you!";
         return priceMessage;
     }
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     private void display(int number) {
         TextView quantityTextView = (TextView) findViewById(
                 R.id.quantity_text_view);
-        quantityTextView.setText("" + number);
+        quantityTextView.setText(String.valueOf(number));
     }
 
     /**
